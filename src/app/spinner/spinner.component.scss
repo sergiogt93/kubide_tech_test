@@ -1,0 +1,42 @@
+.spinnerBox {
+  width: 280px;
+  height: 280px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.spinnerBox::after {
+  position: absolute;
+  left: 20%;
+  font-size: 30px;
+  color: #000;
+  animation: loading 2s linear alternate infinite;
+  content: "Cargando...";
+}
+
+.spinnerItem {
+  position: absolute;
+  width: 30px;
+  height: 6px;
+  transform-origin: 128px;
+  transform: rotate(calc(var(--i) * (360deg / 10)));
+  animation: loadingColor 2s linear infinite;
+  animation-delay: calc(var(--i) * (3s / 40));
+}
+
+@keyframes loadingColor {
+  0% {
+    background-color: #000;
+    opacity: 0;
+  }
+  50% {
+    background-color: #000;
+    opacity: 1;
+  }
+  100% {
+    background-color: #1100f9;
+    opacity: 1;
+  }
+}
+

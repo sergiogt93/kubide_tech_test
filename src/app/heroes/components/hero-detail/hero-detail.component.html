@@ -1,0 +1,29 @@
+<header class="hero-header">
+  <h2><a routerLink="/heroes" >VOLVER AL LISTADO DE HEROES</a></h2>
+</header>
+
+@defer (when loading) {
+  @if (hero) {
+    <div class="hero-detail">
+      <h2 class="hero-title">{{ hero.name }}</h2>
+      <img class="hero-img" [src]="hero.thumbnail.path + '.' + hero.thumbnail.extension" alt="{{ hero.name }}">
+      <p class="hero-text">{{ hero.description }}</p>
+      <div class="hero-comics">
+        <h3 class="hero-comics-title">Comics</h3>
+        <ul class="hero-comics-items">
+          @for (comic of hero.comics.items; track comic.name) {
+            <li class="hero-comics-item">{{ comic.name }}</li>
+          }
+        </ul>
+      </div>
+    </div>
+  }
+  @else {
+    <p>No existe el heroe</p>
+  }
+} @loading (minimum 10s) {
+  <div class="heroes-loading">
+    <app-spinner></app-spinner>
+  </div>
+}
+

@@ -1,0 +1,23 @@
+
+<div #heroesBox class="heroes-box">
+  <h2 class="heroes-title">LISTADO DE HEROES</h2>
+  <app-search-bar (search)="searchHeroes($event)" placeholder="Escribe el héroe que quieres buscar"></app-search-bar>
+  <button (click)="loadMoreHeroes()" [disabled]="loading">Mostrar 20 heroes más</button>
+  <div class="hero-list">
+    @defer (when loading) {
+      @for (hero of heroes; track hero.id) {
+        <div class="hero-item" routerLink="/heroes/{{hero.id}}">
+          <figure class="hero-box-img">
+            <img [src]="hero.thumbnail.path + '.' + hero.thumbnail.extension" alt="{{ hero.name }}">
+          </figure>
+          <h3>{{ hero.name }}</h3>
+          <p>{{ hero.description }}</p>
+        </div>
+      }
+    } @loading (minimum 60s) {
+      <div class="heroes-loading">
+        <app-spinner></app-spinner>
+      </div>
+    }
+  </div>
+</div>

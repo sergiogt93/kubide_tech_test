@@ -1,0 +1,44 @@
+.hero-detail {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px 10%;
+  width: 80%;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  flex-flow: column;
+}
+
+.hero-text {
+  text-align: justify;
+}
+
+.hero-text, .hero-comics {
+  margin: 10px 10%;
+}
+
+.hero-img {
+  width: 200px;
+  height: 200px;
+}
+
+.hero-comics {
+  align-self: self-start;
+}
+
+.hero-comics-items {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  flex-flow: row wrap;
+  gap: 10px;
+  list-style-type: none;
+}
+
+.hero-comics-item {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
