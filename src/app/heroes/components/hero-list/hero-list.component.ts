@@ -20,6 +20,7 @@ export class HeroListComponent implements OnInit {
   heroes: Hero[] = [];
   offset = 0;
   loading = false;
+  isSearched = false;
   currentSearch = '';
 
   constructor(
@@ -42,9 +43,11 @@ export class HeroListComponent implements OnInit {
   }
 
   async searchHeroes(name: string): Promise<void> {
+    this.isSearched = true;
     this.currentSearch = name;
     this.offset = 0;
     this.heroes = [];
     await this.loadMoreHeroes();
+    this.isSearched = false;
   }
 }

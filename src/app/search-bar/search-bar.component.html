@@ -1,4 +1,11 @@
-<div class="searchBox">
-  <input type="text" #name [placeholder]="placeholder">
-  <button (click)="onSearch(name.value)"><img src="assets/img/lupa.png"/></button>
-</div>
+<ng-container *ngIf="customSearchTemplate; else defaultSearch">
+  <ng-container *ngTemplateOutlet="customSearchTemplate; context: { onSearch: onSearch.bind(this) }"></ng-container>
+</ng-container>
+<ng-template #defaultSearch>
+  <div class="searchBox">
+    <input type="text" #name [placeholder]="placeholder">
+    <button (click)="this.onSearch(name.value)"><img src="assets/img/lupa.png"/></button>
+  </div>
+</ng-template>
+
+

@@ -12,6 +12,6 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideClientHydration(),
     provideAnimations(),
-    provideToastr({ timeOut: 100, preventDuplicates: true })
+    provideToastr({ timeOut: 300, preventDuplicates: true })
   ]
 };
